@@ -1,0 +1,135 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #090b14;
+}
+
+#game {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.panel {
+  position: fixed;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(4px);
+}
+
+#ui {
+  top: 1rem;
+  left: 1rem;
+  max-width: 34rem;
+}
+
+#editor {
+  top: 1rem;
+  right: 1rem;
+  width: min(26rem, 40vw);
+  display: grid;
+  gap: 0.35rem;
+}
+
+#editor h2,
+#ui h1 {
+  margin: 0 0 0.35rem;
+}
+
+label {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.82rem;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 0.35rem 0.45rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+
+#mobileControls {
+  position: fixed;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.touch-zone {
+  position: absolute;
+  bottom: 1rem;
+  width: 38vw;
+  max-width: 220px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+#movePad {
+  left: 1rem;
+}
+
+#lookPad {
+  right: 1rem;
+}
+
+#mobileButtons {
+  position: absolute;
+  right: 1rem;
+  bottom: calc(1rem + min(38vw, 220px) + 0.7rem);
+  display: grid;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+#mobileButtons button {
+  min-width: 5rem;
+  min-height: 2.5rem;
+}
+
+@media (max-width: 960px), (pointer: coarse) {
+  #editor {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+
+  #ui {
+    right: 1rem;
+    max-width: none;
+  }
+
+  #mobileControls {
+    display: block;
+  }
+}

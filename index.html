@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Poppy Playtime Web 3D Prototype</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="ui" class="panel">
+      <h1>Poppy Playtime Web Prototype</h1>
+      <p>PC: WASD / Shift / Space / マウス / クリックでGrab</p>
+      <p>Mobile: 左ジョイスティック移動 / 右スワイプ視点 / ボタン操作</p>
+      <p id="status">クリックまたはタップして開始</p>
+    </div>
+
+    <div id="editor" class="panel">
+      <h2>Map Editor</h2>
+      <label>
+        Type
+        <select id="tileType">
+          <option value="wall">Wall</option>
+          <option value="crate">Crate</option>
+          <option value="column">Column</option>
+          <option value="light">Light</option>
+        </select>
+      </label>
+      <label>
+        Size
+        <input id="tileSize" type="number" min="1" max="8" step="1" value="2" />
+      </label>
+      <label>
+        Height
+        <input id="tileHeight" type="number" min="1" max="8" step="1" value="3" />
+      </label>
+      <div class="row">
+        <button id="addTile">Add in front</button>
+        <button id="removeTile">Remove target</button>
+      </div>
+      <div class="row">
+        <button id="saveMap">Save</button>
+        <button id="resetMap">Reset</button>
+      </div>
+      <textarea id="mapData" rows="4" placeholder="Map JSON"></textarea>
+      <div class="row">
+        <button id="exportMap">Export</button>
+        <button id="importMap">Import</button>
+      </div>
+    </div>
+
+    <div id="mobileControls">
+      <div id="movePad" class="touch-zone"></div>
+      <div id="lookPad" class="touch-zone"></div>
+      <div id="mobileButtons">
+        <button id="jumpBtn">Jump</button>
+        <button id="grabBtn">Grab</button>
+      </div>
+    </div>
+
+    <canvas id="game"></canvas>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
